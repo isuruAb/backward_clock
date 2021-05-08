@@ -1,6 +1,7 @@
+import { memo } from "react";
 import styles from "./index.module.scss";
 
-const Ticker = ({value}) => {
+const Ticker = ({ value }) => {
   return (
     <div className={styles.wrapper}>
       <h1>{value}</h1>
@@ -8,4 +9,4 @@ const Ticker = ({value}) => {
   );
 };
 
-export default Ticker;
+export default memo(Ticker);
