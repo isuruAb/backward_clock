@@ -1,0 +1,17 @@
+@import "./colors.scss";
+
+$body-bg: $white;
+
+$theme-colors: (
+  "primary": $primary,
+);
+
+$colors: (
+  "tertiary": $darkText,
+);
+
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
