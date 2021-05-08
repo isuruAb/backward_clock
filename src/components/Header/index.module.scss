@@ -1,0 +1,24 @@
+@import "../../utils/styles/colors.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: $white;
+  box-shadow: 0 0 5px $shadow;
+  border-radius: 0 0 5px 5px;
+
+  h2 {
+    font-weight: bold;
+    padding: 10px 0;
+    color: $darkText;
+
+    span {
+      background: -webkit-linear-gradient(#928aff, #b8b3ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
