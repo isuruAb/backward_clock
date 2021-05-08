@@ -1,4 +1,5 @@
 import { Form } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 const TextField = ({ placeholder, onChange, refs }) => {
   return (
@@ -11,6 +12,12 @@ const TextField = ({ placeholder, onChange, refs }) => {
       />
     </Form.Group>
   );
+};
+
+TextField.propTypes = {
+  placeholder: PropTypes.string,
+  refs: PropTypes.object,
+  onChange: PropTypes.func,
 };
 
 export default TextField;

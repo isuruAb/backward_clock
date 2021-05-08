@@ -1,4 +1,5 @@
 import { memo } from "react";
+import PropTypes from "prop-types";
 import styles from "./index.module.scss";
 
 const Ticker = ({ value }) => {
@@ -7,6 +8,10 @@ const Ticker = ({ value }) => {
       <h1>{value}</h1>
     </div>
   );
+};
+
+Ticker.propTypes = {
+  value: PropTypes.number,
 };
 
 export default memo(Ticker);

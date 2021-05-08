@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import { Container, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Button from "../components/Button";
 import TextField from "../components/TextField";
 import Time from "../components/Time";
@@ -18,7 +18,7 @@ const Clock = () => {
     let timeInMilliseconds = backwardTime.getTime() - decrementBySecs;
     let newDate = new Date(timeInMilliseconds);
     setBackwardTime(newDate);
-  }, [backwardTime]);
+  }, [backwardTime, decrementBySecs]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

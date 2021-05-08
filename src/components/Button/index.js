@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 const ActionButton = ({ text, type, onClick }) => {
   return (
@@ -6,6 +7,12 @@ const ActionButton = ({ text, type, onClick }) => {
       {text}
     </Button>
   );
+};
+
+ActionButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  type: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ActionButton;
