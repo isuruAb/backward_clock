@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import TextField from "../components/TextField";
 import Time from "../components/Time";
 import useForm from "../utils/useForm";
-import validations from "./clockValidation";
+import validations from "../validations/clockValidation";
 
 const Clock = () => {
   const currentTime = new Date();
