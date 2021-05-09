@@ -1,6 +1,6 @@
 import useForm from "./useForm";
 import { renderHook, act } from "@testing-library/react-hooks";
-import dummyValidation from "./dummyValidations";
+import dummyValidation from "../validations/dummyValidations";
 
 describe("useForm hook testing", () => {
   test("should change the value", () => {

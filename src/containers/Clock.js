@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import Button from "../components/Button";
 import TextField from "../components/TextField";
 import Time from "../components/Time";
+import { pad } from "../utils/numbers";
 import useForm from "../utils/useForm";
 import validations from "../validations/clockValidation";
 
@@ -43,9 +44,9 @@ const Clock = () => {
     <>
       <Container>
         <Time
-          hours={backwardTime.getHours()}
-          mins={backwardTime.getMinutes()}
-          seconds={backwardTime.getSeconds()}
+          hours={pad(backwardTime.getHours(),2)}
+          mins={pad(backwardTime.getMinutes(),2)}
+          seconds={pad(backwardTime.getSeconds(),2)}
         />
         <div className="d-flex justify-content-center mb-4">
           <TextField
