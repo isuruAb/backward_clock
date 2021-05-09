@@ -3,11 +3,13 @@ import { Container } from "react-bootstrap";
 import Button from "../components/Button";
 import TextField from "../components/TextField";
 import Time from "../components/Time";
+import useForm from "../utils/useForm";
+import validations from "./clockValidation";
 
 const Clock = () => {
   const currentTime = new Date();
   const [backwardTime, setBackwardTime] = useState(currentTime);
-  const [decrementBySecs, setDecrementBySecs] = useState(1000);
+  const [decrementBySeconds, setDecrementBySeconds] = useState(1);
   const secondsRef = useRef();
 
   const handleReset = () => {
@@ -15,10 +17,10 @@ const Clock = () => {
   };
 
   const clockTick = useCallback(() => {
-    let timeInMilliseconds = backwardTime.getTime() - decrementBySecs;
+    let timeInMilliseconds = backwardTime.getTime() - decrementBySeconds * 1000;
     let newDate = new Date(timeInMilliseconds);
     setBackwardTime(newDate);
-  }, [backwardTime, decrementBySecs]);
+  }, [backwardTime, decrementBySeconds]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,8 +30,14 @@ const Clock = () => {
   }, [clockTick]);
 
   const changeDecrementSeconds = () => {
-    setDecrementBySecs(secondsRef?.current?.value * 1000);
+    setDecrementBySeconds(values.decrementBySeconds);
   };
+
+  const { values, handleChanges, errors, submitForm } = useForm(
+    { decrementBySeconds },
+    changeDecrementSeconds,
+    validations
+  );
 
   return (
     <>
@@ -40,10 +48,17 @@ const Clock = () => {
           seconds={backwardTime.getSeconds()}
         />
         <div className="d-flex justify-content-center mb-4">
-          <TextField refs={secondsRef} placeholder="Number of seconds" />
+          <TextField
+            value={values.decrementBySeconds}
+            refs={secondsRef}
+            placeholder="Number of seconds"
+            name="decrementBySeconds"
+            onChange={handleChanges}
+            error={errors.decrementBySeconds}
+          />
         </div>
         <div className="d-flex justify-content-center">
-          <Button text={"Submit"} onClick={changeDecrementSeconds} />
+          <Button text={"Submit"} onClick={submitForm} />
           <Button text={"Reset"} onClick={handleReset} />
         </div>
       </Container>
