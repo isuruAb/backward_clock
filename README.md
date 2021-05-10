@@ -56,3 +56,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ```
 
+## Limitaions
+
+- There is a limitaion[#1](https://github.com/isuruAb/backward_clock/issues/1) in the solution which you see in the master branch. 
+- To avoid this limitation we can make a manual clock and you can see the solution on the branch [manual_clock](https://github.com/isuruAb/backward_clock/tree/manual_clock)
