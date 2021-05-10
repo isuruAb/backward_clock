@@ -5,9 +5,7 @@ import {
   SECONDS_PER_MIN,
 } from "../constants";
 
-const useClock = (decrementBySeconds) => {
-  const currentTime = new Date();
-
+const useClock = (decrementBySeconds, currentTime) => {
   const [seconds, setSeconds] = useState(currentTime.getSeconds());
   const [minutes, setMinutes] = useState(currentTime.getMinutes());
   const [hours, setHours] = useState(currentTime.getHours());
@@ -30,7 +28,7 @@ const useClock = (decrementBySeconds) => {
   const getHours = (newTotal) => {
     return Math.floor((newTotal % SECONDS_PER_DAY) / SECONDS_PER_HOUR);
   };
-  
+
   const clockTick = useCallback(() => {
     const totalSeconds =
       hours * SECONDS_PER_HOUR + minutes * SECONDS_PER_MIN + seconds;
@@ -43,7 +41,6 @@ const useClock = (decrementBySeconds) => {
     setSeconds(getSeconds(newTotal));
     setMinutes(getMinutes(newTotal));
     setHours(getHours(newTotal));
-
   }, [hours, minutes, seconds, decrementBySeconds]);
 
   useEffect(() => {
@@ -53,7 +50,7 @@ const useClock = (decrementBySeconds) => {
     return () => clearTimeout(timer);
   }, [clockTick]);
 
-  return { handleReset, seconds, minutes, hours };
+  return { handleReset, clockTick, seconds, minutes, hours };
 };
 
 export default useClock;

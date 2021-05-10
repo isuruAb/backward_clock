@@ -9,9 +9,10 @@ import validations from "../validations/clockValidation";
 import useClock from "../utils/hooks/useClock";
 
 const Clock = () => {
+  const currentTime = new Date();
   const [decrementBySeconds, setDecrementBySeconds] = useState(1);
 
-  const { handleReset, seconds, minutes, hours } = useClock(decrementBySeconds);
+  const { handleReset, seconds, minutes, hours } = useClock(decrementBySeconds, currentTime);
 
   const changeDecrementSeconds = () => {
     setDecrementBySeconds(values.decrementBySeconds);
