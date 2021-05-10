@@ -1,34 +1,17 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useState } from "react";
 import { Container } from "react-bootstrap";
 import Button from "../components/Button";
 import TextField from "../components/TextField";
 import Time from "../components/Time";
 import { pad } from "../utils/numbers";
-import useForm from "../utils/useForm";
+import useForm from "../utils/hooks/useForm";
 import validations from "../validations/clockValidation";
+import useClock from "../utils/hooks/useClock";
 
 const Clock = () => {
-  const currentTime = new Date();
-  const [backwardTime, setBackwardTime] = useState(currentTime);
   const [decrementBySeconds, setDecrementBySeconds] = useState(1);
-  const secondsRef = useRef();
 
-  const handleReset = () => {
-    setBackwardTime(currentTime);
-  };
-
-  const clockTick = useCallback(() => {
-    let timeInMilliseconds = backwardTime.getTime() - decrementBySeconds * 1000;
-    let newDate = new Date(timeInMilliseconds);
-    setBackwardTime(newDate);
-  }, [backwardTime, decrementBySeconds]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      clockTick();
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [clockTick]);
+  const { handleReset, seconds, minutes, hours } = useClock(decrementBySeconds);
 
   const changeDecrementSeconds = () => {
     setDecrementBySeconds(values.decrementBySeconds);
@@ -44,14 +27,13 @@ const Clock = () => {
     <>
       <Container>
         <Time
-          hours={pad(backwardTime.getHours(),2)}
-          mins={pad(backwardTime.getMinutes(),2)}
-          seconds={pad(backwardTime.getSeconds(),2)}
+          hours={pad(hours, 2)}
+          mins={pad(minutes, 2)}
+          seconds={pad(seconds, 2)}
         />
         <div className="d-flex justify-content-center mb-4">
           <TextField
             value={values.decrementBySeconds}
-            refs={secondsRef}
             placeholder="Number of seconds"
             name="decrementBySeconds"
             onChange={handleChanges}

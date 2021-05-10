@@ -12,7 +12,7 @@ const Ticker = ({ value, label }) => {
 };
 
 Ticker.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.string,
   label: PropTypes.string,
 };
 

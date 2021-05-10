@@ -13,9 +13,9 @@ const Time = ({ hours, mins, seconds }) => {
 };
 
 Time.propTypes = {
-  hours: PropTypes.number,
-  mins: PropTypes.number,
-  seconds: PropTypes.number,
+  hours: PropTypes.string,
+  mins: PropTypes.string,
+  seconds: PropTypes.string,
 };
 
 export default Time;
