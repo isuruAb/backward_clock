@@ -48,9 +48,12 @@ It correctly bundles React in production mode and optimizes the build for the be
     │   ├── clockValidation.js      # Decrement by seconds field validations
     │   ├── dummyValidations.js     # Dummy validations for testing
     └── utils
-    │   └── useForm.js              # Form controller hook
-    │   ├── style                   # Common styles, colors of the application
-    │   ├── useForm.test.js         # Unit tests of the useForm custom hook
+    │   ├── hooks                   # all the hooks and unit tests of the hooks
+    │   │   ├── useForm.js          # Form controller hook
+    │   │   ├── useForm.test.js     # Unit tests of the useForm custom hook
+    │   │   ├── useClock.js         # clock controller hook- Includes all the clock related logics
+    │   │   └── useClock.test.js    # Unit tests of the useClock custom hook
+    │   └── style                   # Common styles, colors of the application
     └── App.js                      # Routes are defined here
     └── index.js                    # Entry point of the application
 
