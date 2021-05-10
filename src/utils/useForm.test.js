@@ -21,7 +21,11 @@ describe("useForm hook testing", () => {
     const { result } = renderHook(() =>
       useForm({ decrementBySeconds: 1 }, () => {}, dummyValidation)
     );
-
+    act(() => {
+      result.current.handleChanges({
+        target: { value: 0, name: "decrementBySeconds" },
+      });
+    });
     act(() => {
       result.current.submitForm();
     });
