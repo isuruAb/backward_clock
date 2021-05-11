@@ -1,5 +1,5 @@
-const clockValidation = (values) => {
-  let errors = {};
+const clockValidation = (values: any) => {
+  let errors: any = {};
   if (!values.decrementBySeconds) {
     errors.decrementBySeconds = "This field is required";
   }

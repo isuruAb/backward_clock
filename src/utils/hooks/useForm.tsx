@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
-const useForm = (initialState, callback, validation) => {
+const useForm = (
+  initialState: any,
+  callback: Function,
+  validation: Function
+) => {
   const [values, setValues] = useState(initialState);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<any>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -11,7 +15,7 @@ const useForm = (initialState, callback, validation) => {
     }
   }, [errors, isSubmitting, callback]);
 
-  const handleChanges = (e) => {
+  const handleChanges = (e: ChangeEvent<HTMLInputElement>) => {
     setIsSubmitting(false);
     const value = e.target.value;
     const name = e.target.name;

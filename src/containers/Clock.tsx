@@ -34,11 +34,11 @@ const Clock = () => {
         />
         <div className="d-flex justify-content-center mb-4">
           <TextField
-            value={values.decrementBySeconds}
+            value={values?.decrementBySeconds}
             placeholder="Number of seconds"
             name="decrementBySeconds"
             onChange={handleChanges}
-            error={errors.decrementBySeconds}
+            error={errors?.decrementBySeconds}
           />
         </div>
         <div className="d-flex justify-content-center">

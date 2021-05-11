@@ -5,7 +5,7 @@ import {
   SECONDS_PER_MIN,
 } from "../constants";
 
-const useClock = (decrementBySeconds, currentTime) => {
+const useClock = (decrementBySeconds: number, currentTime: Date) => {
   const [seconds, setSeconds] = useState(currentTime.getSeconds());
   const [minutes, setMinutes] = useState(currentTime.getMinutes());
   const [hours, setHours] = useState(currentTime.getHours());
@@ -17,15 +17,15 @@ const useClock = (decrementBySeconds, currentTime) => {
     setHours(currentTime.getHours());
   };
 
-  const getSeconds = (newTotal) => {
+  const getSeconds = (newTotal: number) => {
     return newTotal % SECONDS_PER_MIN;
   };
 
-  const getMinutes = (newTotal) => {
+  const getMinutes = (newTotal: number) => {
     return Math.floor((newTotal % SECONDS_PER_HOUR) / SECONDS_PER_MIN);
   };
 
-  const getHours = (newTotal) => {
+  const getHours = (newTotal: number) => {
     return Math.floor((newTotal % SECONDS_PER_DAY) / SECONDS_PER_HOUR);
   };
 

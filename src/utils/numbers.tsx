@@ -1,4 +1,4 @@
-export const pad = (number, length) => {
+export const pad = (number:number, length:number) => {
   let str = "" + number;
   while (str.length < length) {
     str = "0" + str;

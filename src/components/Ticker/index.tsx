@@ -2,18 +2,18 @@ import { memo } from "react";
 import PropTypes from "prop-types";
 import styles from "./index.module.scss";
 
-const Ticker = ({ value, label }) => {
+interface IProps {
+  value: string;
+  label: string;
+}
+
+const Ticker: React.FC<IProps> = ({ value, label }) => {
   return (
     <div className={styles.wrapper}>
       <h1>{value}</h1>
       <p>{label}</p>
     </div>
   );
-};
-
-Ticker.propTypes = {
-  value: PropTypes.string,
-  label: PropTypes.string,
 };
 
 export default memo(Ticker);
