@@ -1,5 +1,4 @@
 import { Form } from "react-bootstrap";
-import PropTypes from "prop-types";
 import styles from "./index.module.scss";
 import { ChangeEventHandler, RefObject } from "react";
 
@@ -28,14 +27,5 @@ const TextField: React.FC<IProps> = (props) => {
     </Form.Group>
   );
 };
-
-// TextField.propTypes = {
-//   placeholder: PropTypes.string,
-//   refs: PropTypes.object,
-//   onChange: PropTypes.func,
-//   name: PropTypes.string,
-//   error: PropTypes.string,
-//   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-// };
 
 export default TextField;

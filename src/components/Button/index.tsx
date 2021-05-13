@@ -1,5 +1,4 @@
 import { Button } from "react-bootstrap";
-import PropTypes from "prop-types";
 import { MouseEventHandler } from "react";
 
 interface IProps {

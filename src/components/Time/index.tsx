@@ -1,5 +1,4 @@
 import Ticker from "../Ticker";
-import PropTypes from "prop-types";
 import styles from "./index.module.scss";
 
 interface IProps {
